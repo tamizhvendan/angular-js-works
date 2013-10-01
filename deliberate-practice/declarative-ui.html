@@ -18,15 +18,15 @@
     <div class="form-group">
       <label for="tweet" class="control-label">Tweet</label>
       <div>
-        <input type="textarea" class="form-control col-lg-8" id="tweet" placeholder="Enter your tweet here.." ng-model="tweet" ng-class="{ 'invalid-tweet' : !isValidTweet() }">
+        <input type="textarea" class="form-control col-lg-8" id="tweet" placeholder="Enter your tweet here.." ng-model="tweet" ng-class="{ 'invalid-tweet' : !isValidTweet(tweet) }">
       </div>
     </div>
     <div class="form-group">
-      <span>Remaining characters : {{remainingCharacters()}}</span>
+      <span>Remaining characters : {{remainingCharacters(tweet)}}</span>
     </div>
     <div class="form-group">
       <div class="col-lg-offset-2 col-lg-10">
-        <button type="submit" class="btn btn-default" ng-click="submit()" ng-disabled="!isValidTweet()">Sign in</button>
+        <button type="submit" class="btn btn-default" ng-click="submit(tweet)" ng-disabled="!isValidTweet(tweet)">Sign in</button>
       </div>
     </div>    
   </form>

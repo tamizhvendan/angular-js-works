@@ -1,20 +1,20 @@
 var myApp = angular.module("myApp", []);
 
 myApp.controller("TextAreaLimitController",["$scope", function($scope) {
-    var maxCharCount = 10;
+    var maxCharCount = 180;
 
     $scope.tweet = "";
 
-    $scope.isValidTweet = function() {
-      return $scope.tweet.length <= maxCharCount;
+    $scope.isValidTweet = function(tweet) {
+      return tweet ? tweet.length <= maxCharCount : true;
     };
 
-    $scope.submit = function() {
-      console.log($scope.tweet);
+    $scope.submit = function(tweet) {
+      console.log(tweet);
     }
 
-    $scope.remainingCharacters = function() {
-      var charsCount = maxCharCount - $scope.tweet.length;
+    $scope.remainingCharacters = function(tweet) {
+      var charsCount = maxCharCount - tweet.length;
       if (charsCount < 0) {
         return "Tweet should not exceed " + maxCharCount + " characters";
       };
